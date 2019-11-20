@@ -36,17 +36,17 @@ public class Paciente {
 		nombre = nombre.trim();
 
 		String[] palabras = nombre.split(" ");
-		String copiaNombre = "";
+		StringBuilder copiaNombre = new StringBuilder();
 		for (int i = 0; i <= palabras.length - 1; i++) {
 
 			palabras[i] = palabras[i].substring(0, 1).toUpperCase() + palabras[i].substring(1).toLowerCase();
 
-			copiaNombre = copiaNombre + palabras[i] + " ";
+			copiaNombre.append(palabras[i]+" ") ;
 		}
 
-		nombre = copiaNombre.trim();
-
-		return nombre;
+		
+        nombre = copiaNombre.toString();
+		return nombre.trim();
 	}
 
 	private boolean comprobarLetraDni(String dni) {
