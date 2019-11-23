@@ -1,7 +1,6 @@
 package org.iesalandalus.programacion.citasclinica.modelo;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import javax.naming.OperationNotSupportedException;
 
@@ -95,18 +94,17 @@ public class Citas {
 
 	}
 
-	
 	public Cita[] getCitas(LocalDate fecha) {
-		if (fecha==null) {
+		if (fecha == null) {
 			throw new NullPointerException("ERROR: No se pueden devolver las citas para un día nulo.");
-			
+
 		}
 		Cita[] coleccionCitasFecha = new Cita[tamano];
 		int j = 0;
 		for (int i = 0; !tamanoSuperado(i); i++) {
 			if (coleccionCitas[i].getFechaHora().toLocalDate().equals(fecha)) {
 				coleccionCitasFecha[j++] = coleccionCitas[i];
-				
+
 			}
 		}
 		return coleccionCitasFecha;

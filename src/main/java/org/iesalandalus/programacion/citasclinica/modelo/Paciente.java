@@ -1,6 +1,5 @@
 package org.iesalandalus.programacion.citasclinica.modelo;
 
-import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,8 +10,6 @@ public class Paciente {
 	private String nombre;
 	private String dni;
 	private String telefono;
-
-	private String inicialesDevueltas = "";
 
 	public Paciente(String nombre, String dni, String telefono) {
 		setNombre(nombre);
@@ -41,11 +38,10 @@ public class Paciente {
 
 			palabras[i] = palabras[i].substring(0, 1).toUpperCase() + palabras[i].substring(1).toLowerCase();
 
-			copiaNombre.append(palabras[i]+" ") ;
+			copiaNombre.append(palabras[i] + " ");
 		}
 
-		
-        nombre = copiaNombre.toString();
+		nombre = copiaNombre.toString();
 		return nombre.trim();
 	}
 
@@ -78,9 +74,9 @@ public class Paciente {
 
 		String iniciales = "";
 		String[] palabras = getNombre().split(" ");
-		for (int i=0;i<=palabras.length-1;i++) {
-			
-			iniciales = iniciales+palabras[i].charAt(0);
+		for (int i = 0; i <= palabras.length - 1; i++) {
+
+			iniciales = iniciales + palabras[i].charAt(0);
 		}
 
 		return iniciales.toUpperCase();
@@ -110,7 +106,7 @@ public class Paciente {
 		if (!dni.matches(ER_DNI)) {
 			throw new IllegalArgumentException("ERROR: El DNI no tiene un formato válido.");
 		}
-		if (comprobarLetraDni(dni)==false) {
+		if (comprobarLetraDni(dni) == false) {
 			throw new IllegalArgumentException("ERROR: La letra del DNI no es correcta.");
 		}
 
